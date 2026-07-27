@@ -1,0 +1,28 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root {
+ --color-muted-dark: #5a5a5a;
+ --color-muted-light: #dfdfdf;
+
+
+ --color-primary: #460b6a;
+ --color-secondary: #FFFBFF;
+ --color-bgInput: #f5f5f5;
+ --color-borderInput: #e0e0e0;
+ --color-borderInputOutline: #c2c1c1;
+}
+
+@theme {
+--color-text-muted-dark: var(--color-muted-dark);
+--color-text-muted-light: var(--color-muted-light);
+--color-bg-primary: var(--color-primary);
+--color-bg-secondary: var(--color-secondary);
+--color-bg-input: var(--color-bgInput);
+--color-border-input: var(--color-borderInput);
+--color-border-inputOutline: var(--color-borderInputOutline);
+}
+
+body{
+      font-family: 'Inter';
+}
