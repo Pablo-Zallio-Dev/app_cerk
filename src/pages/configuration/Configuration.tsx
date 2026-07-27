@@ -6,6 +6,7 @@ import Container from "../../components/Container";
 import Line from "../../components/Line";
 import SubtitleForm from "../../components/SubtitleForm";
 import { useNavigate } from "react-router-dom";
+import ErrorForm from "../../components/ErrorForm";
 
 const Configuration = () => {
             const navigate = useNavigate();
@@ -76,7 +77,7 @@ const Configuration = () => {
                                           {...register("contactName")}
                                     />
                               </div>
-                              <div className=" flex flex-col items-start gap-2 ">
+                              <div className=" relative flex flex-col items-start gap-2 ">
                                     <label
                                           htmlFor=""
                                           className=" font-semibold text-xs text-text-muted-dark "
@@ -92,7 +93,7 @@ const Configuration = () => {
                                           })}
                                     />
                                     {errors.phoneContact && (
-                                          <p className=" text-xs " >{errors.phoneContact.message}</p>
+                                          <ErrorForm error='El telefono es obligatorio' />
                                     )}
                               </div>
                         </div>

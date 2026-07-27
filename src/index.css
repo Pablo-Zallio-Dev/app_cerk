@@ -4,7 +4,7 @@
 :root {
  --color-muted-dark: #5a5a5a;
  --color-muted-light: #dfdfdf;
-
+--color-error: #c60000;
 
  --color-primary: #460b6a;
  --color-secondary: #FFFBFF;
@@ -17,6 +17,7 @@
 --color-text-muted-dark: var(--color-muted-dark);
 --color-text-muted-light: var(--color-muted-light);
 --color-bg-primary: var(--color-primary);
+--color-error: var(--color-error);
 --color-bg-secondary: var(--color-secondary);
 --color-bg-input: var(--color-bgInput);
 --color-border-input: var(--color-borderInput);
