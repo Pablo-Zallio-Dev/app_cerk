@@ -118,7 +118,7 @@ export const useAlertFlow = () => {
                         
                         ${whatsappUrl}
                         `);
-                  window.location.href = whatsappUrl;
+                  window.open(whatsappUrl, "_self");
             };
 
             if (countdown !== 0) return;
