@@ -109,15 +109,8 @@ export const useAlertFlow = () => {
                   //const whatsappUrl = `https://wa.me/${phoneContact}?text=${encodeURIComponent(finalMessage)}`;
                   const cleanPhone = phoneContact.replace(/\D/g, "");
 
-                  const whatsappUrl = `whatsapp://send?phone=${cleanPhone}&text=${encodeURIComponent(finalMessage)}`;
+                  const whatsappUrl = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(finalMessage)}`;
 
-                  alert(`
-                        Teléfono: ${phoneContact}
-                        
-                        URL:
-                        
-                        ${whatsappUrl}
-                        `);
                   window.open(whatsappUrl, "_self");
             };
 
