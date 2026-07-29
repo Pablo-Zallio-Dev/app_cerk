@@ -3,6 +3,7 @@ import Configuration from "../pages/configuration/Configuration";
 import { ProtectedRoute } from "./ProtectedRoute";
 import Welcome from "../pages/welcome/Welcome";
 import { useCerkStore } from "../stores/cerk.store";
+import UseInstructions from "../pages/instructions/UseInstructions";
 
 function AppRouter() {
   const hasStarted = useCerkStore(
@@ -26,6 +27,7 @@ function AppRouter() {
         path="/configuration"
         element={<Configuration />}
       />
+       <Route path="/instructions" element={<UseInstructions />} />
     </Routes>
   );
 }

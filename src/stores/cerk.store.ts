@@ -10,7 +10,7 @@ export const useCerkStore = create<CerkState>()(
       userName: "",
       contactName: "",
       phoneContact: "",
-      message: "Necesito ayuda. Por favor, contacta a las autoridades.",
+      message: "Necesito ayuda",
       shareLocation: true,
       hasStarted: false,
       setHasStarted: (hasStarted) => set({ hasStarted }),
