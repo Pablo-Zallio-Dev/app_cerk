@@ -5,7 +5,7 @@ import { useCerkStore } from "../stores/cerk.store";
 export const useAlertFlow = () => {
       const [alertStatus, setAlertStatus] = useState<AlertStatus>("idle");
       const [pressSeconds, setPressSeconds] = useState<number | null>(null);
-      const [countdown, setCountdown] = useState(5);
+      const [countdown, setCountdown] = useState(3);
       const [location, setLocation] = useState<string | null>(null);
       const pressTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
       const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -132,7 +132,7 @@ export const useAlertFlow = () => {
                   countdownTimerRef.current = null;
             }
 
-            setCountdown(5);
+            setCountdown(3);
             setAlertStatus("idle");
             setPressSeconds(null);
       };
