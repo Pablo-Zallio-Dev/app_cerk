@@ -4,9 +4,10 @@ import type { ConfigurationForm } from "../../types/configurationForm.type";
 import Container from "../../components/Container";
 import Line from "../../components/Line";
 import SubtitleForm from "../../components/SubtitleForm";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ErrorForm from "../../components/ErrorForm";
 import Logo from "../../components/Logo";
+import { MapPin, TriangleAlert } from "lucide-react";
 
 const Configuration = () => {
       const navigate = useNavigate();
@@ -52,18 +53,26 @@ const Configuration = () => {
       };
 
       return (
-            <>
-                  <div className=" py-2 px-6 bg-bg-secondary  ">
+
+            <Container>
+                  <div className=" py-2 px-4 bg-bg-secondary  ">
                         <div className="  w-18 ">
                               <Logo />
 
                         </div>
                   </div>
-                  <Container>
-                        <h1 className=" pb-6 px-4 font-semibold text-start text-2xl ">
-                              Configuracion
-                        </h1>
-                        <form onSubmit={handleSubmit(onSubmit)} action="" className=" px-6 ">
+                  <div className="">
+
+                        <div className="pb-6 px-4">
+
+                              <h1 className=" pb-2 font-semibold text-start text-2xl ">
+                                    Configuracion
+                              </h1>
+                              <p className=" mb-4 text-xs  ">Personaliza los datos de alerta de emergencia, con cualquier duda revisa las intrucciones de uso en la pantalla principal.</p>
+                            
+                                    <Link className=" flex items-center gap-2 w-max py-1 px-3 border border-border-input rounded-xl shadow-md/40 bg-bg-input text-center text-text-muted-dark text-xs italic " to={"/instructions"}><TriangleAlert size={16} /> Instrucciones de uso</Link>
+                        </div>
+                        <form onSubmit={handleSubmit(onSubmit)} action="" className=" px-6 py-4 mx-4 border border-text-muted-light rounded-xl  bg-white ">
                               <div className=" flex flex-col items-start gap-2 ">
                                     <label htmlFor="" className=" font-semibold text-sm ">
                                           Tu nombre
@@ -135,7 +144,8 @@ const Configuration = () => {
                                           {...register("shareLocation")}
                                     />
                                     <div className=" flex flex-col items-start  ">
-                                          <label htmlFor="" className=" font-semibold text-sm ">
+                                          <label htmlFor="" className=" flex items-center gap-2 font-semibold text-sm ">
+                                                <MapPin size={16} />
                                                 Compartir ubicación
                                           </label>
                                           <p className=" pt-1 text-xs text-text-muted-dark italic  ">
@@ -143,14 +153,16 @@ const Configuration = () => {
                                           </p>
                                     </div>
                               </div>
+                              <div className=" pt-8  flex flex-col gap-4 ">
 
-                              <button className=" py-2 px-6 my-6 rounded-xl bg-bg-primary text-text-muted-light text-sm shadow-md shadow-text-muted-dark " type="submit">Guardar</button>
+                                    <button className=" w-full max-w-64 py-2 px-6 rounded-xl bg-bg-primary text-text-muted-light text-center text-sm shadow-md shadow-text-muted-dark " type="submit">Guardar</button>
+                                    <Link className=" w-full max-w-64 py-2 px-6 rounded-xl bg-bg-secondary text-text-muted-dark text-center text-sm shadow-md shadow-text-muted-dark " to={"/"} >Volver sin modificar</Link>
+                              </div>
                         </form>
-                        <p className=" my-12 text-xs text-text-muted-dark italic text-center  ">
-                              Los cambios se guardaran automaticamente
-                        </p>
-                  </Container>
-            </>
+                  </div>
+
+            </Container>
+
       );
 };
 
