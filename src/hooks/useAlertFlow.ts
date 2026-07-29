@@ -6,7 +6,7 @@ export const useAlertFlow = () => {
       const [alertStatus, setAlertStatus] = useState<AlertStatus>("idle");
       const [pressSeconds, setPressSeconds] = useState<number | null>(null);
       const [countdown, setCountdown] = useState(5);
-
+      const [location, setLocation] = useState<string | null>(null);
       const pressTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
       const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
       const countdownTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -45,21 +45,6 @@ export const useAlertFlow = () => {
             setPressSeconds(null);
       };
 
-      useEffect(() => {
-            if (alertStatus !== "countdown") return;
-
-            countdownTimerRef.current = setInterval(() => {
-                  setCountdown((previous) => previous - 1);
-            }, 1000);
-
-            return () => {
-                  if (countdownTimerRef.current) {
-                        clearInterval(countdownTimerRef.current);
-                        countdownTimerRef.current = null;
-                  }
-            };
-      }, [alertStatus]);
-
       const getLocation = (): Promise<string | null> => {
             return new Promise((resolve) => {
                   if (!navigator.geolocation) {
@@ -92,25 +77,42 @@ export const useAlertFlow = () => {
       };
 
       useEffect(() => {
-            const sendAlert = async () => {
-                  const { phoneContact, message, shareLocation } = useCerkStore.getState();
-                  console.log("shareLocation:", shareLocation);
-                  let location: string | null = null;
+            if (alertStatus !== "countdown") return;
+            const loadLocation = async () => {
+                  const currentLocation = await getLocation();
 
-                  if (shareLocation) {
-                        location = await getLocation();
+                  setLocation(currentLocation);
+            };
+
+            loadLocation();
+
+            countdownTimerRef.current = setInterval(() => {
+                  setCountdown((previous) => previous - 1);
+            }, 1000);
+
+            return () => {
+                  if (countdownTimerRef.current) {
+                        clearInterval(countdownTimerRef.current);
+                        countdownTimerRef.current = null;
                   }
+            };
+      }, [alertStatus]);
 
 
 
-                  console.log("LOCATION:", location);
+      useEffect(() => {
+            const sendAlert = () => {
+                  const { phoneContact, message } = useCerkStore.getState();
+
+                 
+
+
                   const finalMessage = `${message}. ${location ? `Mi ubicacion es:${location} ` : ""} `;
-                  console.log("FINAL:", finalMessage);
-                  //const whatsappUrl = `https://wa.me/${phoneContact}?text=${encodeURIComponent(finalMessage)}`;
-                  const cleanPhone = phoneContact.replace(/\D/g, "");
 
-                  const whatsappUrl = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(finalMessage)}`;
+                  const whatsappUrl = `https://wa.me/${phoneContact}?text=${encodeURIComponent(finalMessage)}`;
 
+                 
+                  
                   window.open(whatsappUrl, "_self");
             };
 
