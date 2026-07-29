@@ -94,7 +94,6 @@ export const useAlertFlow = () => {
       useEffect(() => {
             const sendAlert = async () => {
                   const { phoneContact, message, shareLocation } = useCerkStore.getState();
-                  alert("Entrando en sendAlert");
                   console.log("shareLocation:", shareLocation);
                   let location: string | null = null;
 
@@ -102,16 +101,24 @@ export const useAlertFlow = () => {
                         location = await getLocation();
                   }
 
-                  alert(`shareLocation = ${shareLocation}
-location = ${location}`);
+
 
                   console.log("LOCATION:", location);
                   const finalMessage = `${message}. ${location ? `Mi ubicacion es:${location} ` : ""} `;
                   console.log("FINAL:", finalMessage);
-                  const whatsappUrl = `https://wa.me/${phoneContact}?text=${encodeURIComponent(finalMessage)}`;
-                  alert("Abriendo WhatsApp");
+                  //const whatsappUrl = `https://wa.me/${phoneContact}?text=${encodeURIComponent(finalMessage)}`;
+                  const cleanPhone = phoneContact.replace(/\D/g, "");
 
-                  window.open(whatsappUrl, "_self");
+                  const whatsappUrl = `whatsapp://send?phone=${cleanPhone}&text=${encodeURIComponent(finalMessage)}`;
+
+                  alert(`
+                        Teléfono: ${phoneContact}
+                        
+                        URL:
+                        
+                        ${whatsappUrl}
+                        `);
+                  window.location.href = whatsappUrl;
             };
 
             if (countdown !== 0) return;
