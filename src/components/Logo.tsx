@@ -1,8 +1,8 @@
-import React from 'react'
 
 const Logo = () => {
   return (
-    <img src="/public/image 1.png" alt="logo de cerk" />
+      
+    <img className=' ' src="/image_logo.png" alt="logo de cerk" />
   )
 }
 
