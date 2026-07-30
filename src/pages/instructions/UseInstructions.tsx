@@ -7,12 +7,12 @@ import { FcBusinesswoman, FcCollect, FcHighPriority, FcOk, FcPrevious, FcSetting
 const UseInstructions = () => {
       return (
             <Container>
-                  <div className=" flex flex-col items-center gap-12 pb-12 mx-4 text-text-muted-dark  ">
+                  <div className=" flex flex-col items-center gap-12 pb-12  text-text-muted-dark  ">
                         <div className="  ">
-                              <h2 className=" pb-4 text-2xl font-semibold text-center ">Instruciones de uso</h2>
-                              <p className=" text-sm  ">Aprende cómo usar Cerk correctamente para estar siempre preparado </p>
+                              <h2 className=" fixed top-0 w-full py-2 text-2xl font-semibold text-center bg-bg-secondary      ">Instruciones de uso</h2>
+                              <p className=" pt-8 mx-4 text-sm  ">Aprende cómo usar Cerk correctamente para estar siempre preparado </p>
                         </div>
-                        <div className=" flex flex-col gap-6 ">
+                        <div className=" flex flex-col gap-6 mx-4 ">
                               <CardContainer>
                                     <div className=" flex items-center gap-4 ">
                                           <FcSettings size={24} />
@@ -25,8 +25,8 @@ const UseInstructions = () => {
                                           <FcBusinesswoman size={24} />
                                           <h3 className=" text-lg font-bold ">Contacto de confianza</h3>
                                     </div>
-                                    <p className=" pt-4 leading-5 text-sm ">Introduce el número de teléfono en formato internacional incluyendo el prefijo del país.</p>
-                                    <p className=" mt-4 bg-bg-input p-2 rounded-md text-bg-primary font-bold text-xs ">+34 666 11 22 33</p>
+                                    <p className=" pt-4 leading-5 text-sm ">Introduce el número de teléfono en el input correspondiente en el formulario en formato internacional incluyendo el prefijo del país.</p>
+                                    <p className=" mt-4 bg-bg-input p-2 rounded-md text-bg-primary/30 font-bold text-xs ">+34 666 11 22 33</p>
                                     <p className=" mt-4 italic text-[10px] "> Esto permitirá que WhatsApp abra correctamente la conversación. </p>
                               </CardContainer>
                               <CardContainer>
@@ -50,21 +50,21 @@ const UseInstructions = () => {
                                           <h3 className=" text-lg font-bold ">Como enviar una alerta.</h3>
                                     </div>
                                     <div className=" flex flex-col ">
-                                          <div className=" flex  items-center  gap-4 ">
+                                          <div className=" flex  items-start  gap-4 mt-4 ">
                                                 <p className=" flex justify-center items-center shrink-0 w-6 h-6 rounded-full bg-bg-input text-sm font-semibold ">1</p>
-                                                <p className=" pt-4 leading-5 text-sm ">Mantén pulsado el botón de emergencia durante 3 segundos.</p>
+                                                <p className=" leading-5 text-sm ">Mantén pulsado el botón de emergencia durante 3 segundos.</p>
                                           </div>
-                                          <div className=" flex  items-center  gap-4 ">
+                                          <div className=" flex  items-start  gap-4 mt-4 ">
                                                 <p className=" flex justify-center items-center shrink-0 w-6 h-6 rounded-full bg-bg-input text-sm font-semibold ">2</p>
-                                                <p className=" pt-4 leading-5 text-sm ">Comenzará una cuenta atrás de 5 segundos.</p>
+                                                <p className=" leading-5 text-sm ">Comenzará una cuenta atrás de 5 segundos.</p>
                                           </div>
-                                          <div className=" flex  items-center  gap-4 ">
+                                          <div className=" flex  items-start  gap-4 mt-4 ">
                                                 <p className=" flex justify-center items-center shrink-0 w-6 h-6 rounded-full bg-bg-input text-sm font-semibold ">3</p>
-                                                <p className=" pt-4 leading-5 text-sm ">Durante ese tiempo podrás cancelar el envío.</p>
+                                                <p className=" leading-5 text-sm ">Durante ese tiempo podrás cancelar el envío.</p>
                                           </div>
-                                          <div className=" flex  items-center  gap-4 ">
+                                          <div className=" flex  items-start  gap-4 mt-4 ">
                                                 <p className=" flex justify-center items-center shrink-0 w-6 h-6 rounded-full bg-bg-input text-sm font-semibold ">4</p>
-                                                <p className=" pt-4 leading-5 text-sm ">Si no cancelas, CerK abrirá WhatsApp con el mensaje preparado.</p>
+                                                <p className=" leading-5 text-sm ">Si no cancelas, CerK abrirá WhatsApp con el mensaje preparado.</p>
                                           </div>
                                     </div>
                               </CardContainer>

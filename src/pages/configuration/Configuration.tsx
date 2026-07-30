@@ -72,7 +72,7 @@ const Configuration = () => {
                             
                                     <Link className=" flex items-center gap-2 w-max py-1 px-3 border border-border-input rounded-xl shadow-md/40 bg-bg-input text-center text-text-muted-dark text-xs italic " to={"/instructions"}><TriangleAlert size={16} /> Instrucciones de uso</Link>
                         </div>
-                        <form onSubmit={handleSubmit(onSubmit)} action="" className=" px-6 py-4 mx-4 border border-text-muted-light rounded-xl  bg-white ">
+                        <form onSubmit={handleSubmit(onSubmit)} action="" className=" px-6 py-8 mx-4 mb-18  border border-text-muted-light rounded-xl  bg-white ">
                               <div className=" flex flex-col items-start gap-2 ">
                                     <label htmlFor="" className=" font-semibold text-sm ">
                                           Tu nombre

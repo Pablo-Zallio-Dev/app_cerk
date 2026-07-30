@@ -1,8 +1,8 @@
 
-const Logo = () => {
+const Logo = ({small}: {small?:boolean}) => {
   return (
       
-    <img className=' ' src="/image_logo.png" alt="logo de cerk" />
+    <img className=' ' src={` ${small ?'/image_logo-header.png' :'/image_logo.webp'} `} alt="logo de cerk" />
   )
 }
 

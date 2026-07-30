@@ -60,9 +60,7 @@ export const useAlertFlow = () => {
                         },
 
                         (error) => {
-                              alert(
-                                    `Código: ${error.code}\nMensaje: ${error.message}`
-                              );
+                              alert(`Código: ${error.code}\nMensaje: ${error.message}`);
 
                               resolve(null);
                         },
@@ -80,8 +78,6 @@ export const useAlertFlow = () => {
             if (alertStatus !== "countdown") return;
             const loadLocation = async () => {
                   const currentLocation = await getLocation();
-                          alert(`Ubicación obtenida:\n${currentLocation}`);
-
 
                   setLocation(currentLocation);
             };
@@ -100,22 +96,19 @@ export const useAlertFlow = () => {
             };
       }, [alertStatus]);
 
-
+      // Solo queremos ejecutar este efecto cuando el countdown llegue a 0.
+      // No añadimos `location` porque podría volver a ejecutar sendAlert()
+      // y abrir WhatsApp dos veces.
 
       useEffect(() => {
             const sendAlert = () => {
                   const { phoneContact, message } = useCerkStore.getState();
-
-                 
-
-
                   const finalMessage = `${message}. ${location ? `Mi ubicacion es:${location} ` : ""} `;
-
                   const whatsappUrl = `https://wa.me/${phoneContact}?text=${encodeURIComponent(finalMessage)}`;
 
-                 
-                  
+
                   window.open(whatsappUrl, "_self");
+
             };
 
             if (countdown !== 0) return;
@@ -126,7 +119,25 @@ export const useAlertFlow = () => {
             }
 
             sendAlert();
+            // eslint-disable-next-line react-hooks/exhaustive-deps
       }, [countdown]);
+
+      useEffect(() => {
+            const handleVisibility = () => {
+                  if (document.visibilityState === "visible") {
+                        setAlertStatus("idle");
+                        setCountdown(5);
+                        setPressSeconds(null);
+                        setLocation(null);
+                  }
+            };
+
+            document.addEventListener("visibilitychange", handleVisibility);
+
+            return () => {
+                  document.removeEventListener("visibilitychange", handleVisibility);
+            };
+      }, []);
 
       const handleCancel = () => {
             if (countdownTimerRef.current) {

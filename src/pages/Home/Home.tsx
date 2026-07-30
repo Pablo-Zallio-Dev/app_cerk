@@ -18,7 +18,7 @@ const Home = () => {
                   <Container>
                         <div className=" flex justify-between items-center py-2 px-6 bg-bg-secondary  ">
                               <div className="  w-18 ">
-                                    <Logo />
+                                    <Logo small />
                               </div>
                               <Link className=" flex items-center gap-2 text-bg-primary " to={"/configuration"}>
                                     <Settings size={18} />
