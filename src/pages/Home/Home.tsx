@@ -2,7 +2,9 @@ import { Link } from "react-router-dom";
 import Container from "../../components/Container";
 import Logo from "../../components/Logo";
 import { useAlertFlow } from "../../hooks/useAlertFlow";
-import { Settings, Siren, TriangleAlert } from "lucide-react"
+import { Siren } from "lucide-react"
+import BtnIntructions from "../../components/BtnIntructions";
+import { FcSettings } from "react-icons/fc";
 const Home = () => {
       const {
             alertStatus,
@@ -20,16 +22,16 @@ const Home = () => {
                               <div className="  w-18 ">
                                     <Logo small />
                               </div>
-                              <Link className=" flex items-center gap-2 text-bg-primary " to={"/configuration"}>
-                                    <Settings size={18} />
-                                    <p className=" text-[10px] ">CONFIGURACION</p>
+                              <Link className=" flex flex-col items-center text-bg-primary " to={"/configuration"}>
+                                    <FcSettings  size={14} />
+                                    <p className=" text-text-muted-dark text-[10px] ">Configuraciòn</p>
                               </Link>
                         </div>
-                        <div className=" flex flex-1 justify-center items-center  ">
+                        <div className=" flex grow justify-center items-center  ">
 
                         {alertStatus === "idle" && (
                               <div className=" flex flex-col justify-center items-center gap-6 px-6 ">
-                                    <h1 className=" w-full max-w-3xs text-2xl font-bold text-center ">
+                                    <h1 className=" w-full max-w-3xs text-4xl font-bold text-center ">
                                           Manten pulsado para enviar la alerta
                                     </h1>
                                     <div className=" p-4 shadow-lg/80 shadow-text-muted-dark/70 rounded-full border border-text-muted-light ">
@@ -52,13 +54,14 @@ const Home = () => {
                                     </p>
                                     <div className=" flex justify-center pt-10 w-full  ">
                                           
-                                          <Link className=" flex items-center gap-2 py-1 px-3 border border-border-input rounded-xl shadow-md/40 bg-bg-input text-center text-text-muted-dark text-xs italic " to={"/instructions"}><TriangleAlert size={16} /> Instrucciones de uso</Link>
+                                          <BtnIntructions />
                                     </div>
+                                    
                               </div>
                         )}
                         {alertStatus === "countdown" && (
                               <div className=" flex flex-col items-center ">
-                                    <p className=" text-lg font-semibold ">Preparando Alerta</p>
+                                    <p className=" text-4xl font-semibold ">Preparando Alerta</p>
                                     <p className=" text-text-muted-dark text-sm font-semibold ">
                                           Enviando alerta en:
                                     </p>
