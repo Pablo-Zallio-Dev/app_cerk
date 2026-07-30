@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
 import CardContainer from "../../components/CardContainer"
 import Container from "../../components/Container"
-import { FcBusinesswoman, FcCollect, FcHighPriority, FcOk, FcPrevious, FcSettings, FcSms } from "react-icons/fc";
+import { FcBusinesswoman, FcCollect, FcHighPriority, FcOk, FcSettings, FcSms } from "react-icons/fc";
+import BtnBack from "../../components/BtnBack";
 
 
 const UseInstructions = () => {
@@ -9,8 +9,8 @@ const UseInstructions = () => {
             <Container>
                   <div className=" flex flex-col items-center gap-12 pb-12  text-text-muted-dark  ">
                         <div className="  ">
-                              <h2 className=" fixed top-0 w-full py-2 text-2xl font-semibold text-center bg-bg-secondary      ">Instruciones de uso</h2>
-                              <p className=" pt-8 mx-4 text-sm  ">Aprende cómo usar Cerk correctamente para estar siempre preparado </p>
+                              <h2 className=" fixed top-0 left-0 w-full py-4 border-b border-border-input text-2xl font-semibold text-center bg-bg-secondary      ">Instruciones de uso</h2>
+                              <p className=" pt-20 mx-4 text-sm  ">Aprende cómo usar Cerk correctamente para estar siempre preparado </p>
                         </div>
                         <div className=" flex flex-col gap-6 mx-4 ">
                               <CardContainer>
@@ -76,7 +76,7 @@ const UseInstructions = () => {
                                     <p className=" pt-4 leading-5 text-sm ">Antes de necesitar CerK, realiza una prueba con tu contacto de confianza para comprobar que el número, el mensaje y la ubicación funcionan correctamente.</p>
                               </CardContainer>
                         </div>
-                        <Link className=" flex items-center gap-2 w-max py-1 px-3 border border-border-input rounded-xl shadow-md/40 bg-bg-input text-center text-text-muted-dark text-xs italic " to={"/"}><FcPrevious  size={16} />Volver</Link>
+                       <BtnBack />
 
                   </div>
             </Container>
