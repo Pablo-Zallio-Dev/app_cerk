@@ -25,8 +25,8 @@ export const useCerkStore = create<CerkState>()(
       setShareLocation: (shareLocation) => set({ shareLocation }),
 
       isConfigurationComplete: () => {
-        const { phoneContact, message } = get();
-        return phoneContact.trim() !== "" && message.trim() !== "";
+        const { phoneContact } = get();
+        return phoneContact.trim() !== ""
       },
     }),
     {
