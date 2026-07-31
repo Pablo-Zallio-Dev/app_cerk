@@ -1,6 +1,6 @@
 import CardContainer from "../../components/CardContainer"
 import Container from "../../components/Container"
-import { FcBusinesswoman, FcCollect, FcHighPriority, FcOk, FcSettings, FcSms } from "react-icons/fc";
+import { FcBusinesswoman, FcCollect, FcConferenceCall, FcHighPriority, FcOk, FcSettings, FcSms } from "react-icons/fc";
 import BtnBack from "../../components/BtnBack";
 
 
@@ -28,6 +28,19 @@ const UseInstructions = () => {
                                     <p className=" pt-4 leading-5 text-sm ">Introduce el número de teléfono en el input correspondiente en el formulario en formato internacional incluyendo el prefijo del país.</p>
                                     <p className=" mt-4 bg-bg-input p-2 rounded-md text-bg-primary/30 font-bold text-xs ">+34 666 11 22 33</p>
                                     <p className=" mt-4 italic text-[10px] "> Esto permitirá que WhatsApp abra correctamente la conversación. </p>
+                              </CardContainer>
+                              <CardContainer>
+                                    <div className=" flex items-center gap-4 ">
+                                          <FcConferenceCall size={24} />
+                                          <h3 className=" text-lg font-bold ">Adapta tu contacto de confianza a cada situación</h3>
+                                    </div>
+                                    <p className=" pt-4 leading-5 text-sm ">No es necesario utilizar siempre el mismo contacto. Antes de una situación en la que quieras sentirte más seguro, puedes actualizar el contacto de confianza para que la persona adecuada esté atenta a tu alerta.</p>
+                                    <p className=" pt-4 leading-5 text-xs ">Si vas a reunirte con alguien que no conoces, configura como contacto a un amigo o familiar que sepa dónde vas a estar.</p>
+                                    <p className=" pt-4 leading-5 text-xs ">Si sales por la noche o haces un viaje, puedes cambiar temporalmente el contacto para que otra persona esté pendiente de tu mensaje.</p>
+
+                                    
+                                    
+                                    <p className=" mt-4 italic text-[10px] "> Recuerda avisar previamente a esa persona para que sepa que podría recibir una alerta desde CerK. </p>
                               </CardContainer>
                               <CardContainer>
                                     <div className=" flex items-center gap-4 ">
